@@ -1,0 +1,14 @@
+version: "3.1"
+services:
+  producer:
+    build: producer/
+    restart: always
+    ports:
+      - "8080:8080"
+    command: gunicorn --bind 0.0.0.0:8080 --workers 4 main:app
+  fetcher:
+    build: fetcher/
+    restart: always
+    ports:
+      - "7070:7070"
+    command: gunicorn --bind 0.0.0.0:7070 main:app
