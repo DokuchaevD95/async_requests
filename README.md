@@ -27,8 +27,12 @@ Fetcher выполняет запросы асинхронно по 4 api с у�
 - Выполняем `docker-compose up -d`
 - По завершении работы отключаем `docker-compose down`
 
-[/fetch-async](https://127.0.0.1:7070/fetch-async)
-[/first](https://127.0.0.1:8080/first)
-[/second](https://127.0.0.1:8080/second)
-[/third](https://127.0.0.1:8080/third)
-[/four](https://127.0.0.1:8080/four)
+[/fetch-async](http://127.0.0.1:7070/fetch-async)
+
+[/first](http://127.0.0.1:8080/first)
+
+[/second](http://127.0.0.1:8080/second)
+
+[/third](http://127.0.0.1:8080/third)
+
+[/four](http://127.0.0.1:8080/four)
