@@ -21,6 +21,7 @@ def second():
     for id_ in ids:
         data.append({'name': f'Test {id_}', 'id': id_, 'file': 'second'})
 
+    # Эмуляция простоя
     sleep(5)
     return jsonify(data)
 
@@ -36,6 +37,7 @@ def third():
 
 @app.route('/fourth', methods=['GET'])
 def fourth():
+    # Контроллер с ошибкой
     return Response(status=500)
 
 
