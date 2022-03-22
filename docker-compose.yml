@@ -5,7 +5,7 @@ services:
     restart: always
     ports:
       - "8080:8080"
-    command: gunicorn --bind 0.0.0.0:8080 --workers 4 main:app
+    command: gunicorn --bind 0.0.0.0:8080 --workers 4 --log-level debug main:app
   fetcher:
     build: ./fetcher
     restart: always
@@ -15,4 +15,4 @@ services:
       - "7070:7070"
     links:
       - "producer:producer"
-    command: gunicorn --bind 0.0.0.0:7070 main:app
+    command: gunicorn --bind 0.0.0.0:7070 --log-level debug main:app

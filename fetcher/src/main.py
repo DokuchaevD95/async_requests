@@ -5,7 +5,7 @@ from flask import Flask, jsonify
 from concurrent.futures import ThreadPoolExecutor
 
 
-URL = os.environ.get('PRODUCER_URL', 'http://127.0.0.1:8080')
+URL = os.environ.get('PRODUCER_URL', 'http://0.0.0.0:8080')
 app = Flask(__name__)
 
 
@@ -54,4 +54,4 @@ def fetch_async():
 
 
 if __name__ == '__main__':
-    app.run(port=7070)
+    app.run(host='0.0.0.0', port=7070)
