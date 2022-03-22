@@ -5,10 +5,14 @@ services:
     restart: always
     ports:
       - "8080:8080"
-    command: gunicorn --bind 0.0.0.0:8080 main:app
+    command: gunicorn --bind 0.0.0.0:8080 --workers 4 main:app
   fetcher:
     build: ./fetcher
     restart: always
+    environment:
+      PRODUCER_URL: "http://producer:8080"
     ports:
       - "7070:7070"
+    links:
+      - "producer:producer"
     command: gunicorn --bind 0.0.0.0:7070 main:app

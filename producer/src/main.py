@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+from time import sleep
+from flask import Flask, jsonify, Response
 
 
 app = Flask(__name__)
@@ -19,6 +20,8 @@ def second():
     data = []
     for id_ in ids:
         data.append({'name': f'Test {id_}', 'id': id_, 'file': 'second'})
+
+    sleep(5)
     return jsonify(data)
 
 
@@ -29,3 +32,12 @@ def third():
     for id_ in ids:
         data.append({'name': f'Test {id_}', 'id': id_, 'file': 'third'})
     return jsonify(data)
+
+
+@app.route('/fourth', methods=['GET'])
+def fourth():
+    return Response(status=500)
+
+
+if __name__ == '__main__':
+    app.run(port=8080)
